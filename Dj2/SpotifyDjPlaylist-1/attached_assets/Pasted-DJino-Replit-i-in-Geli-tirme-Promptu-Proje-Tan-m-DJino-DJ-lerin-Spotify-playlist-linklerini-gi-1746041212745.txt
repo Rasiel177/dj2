@@ -1,0 +1,239 @@
+DJino – Replit için Geliştirme Promptu
+
+Proje Tanımı
+
+DJino, DJ’lerin Spotify playlist linklerini girerek şarkıların BPM (Beats Per Minute), key (ton) ve enerji seviyesi gibi müzikal özelliklerini analiz eden ve Camelot Wheel’e dayalı harmonik geçişlerle optimize edilmiş set listeleri oluşturan bir mobil uyumlu web uygulamasıdır. Uygulama, amatör ve profesyonel DJ’lerin set hazırlama sürecini kolaylaştırmayı hedefler ve Spotify entegrasyonuyla kullanıcı dostu bir deneyim sunar. Bu proje, Replit platformunda geliştirilecek ve tam işlevsel bir prototip üretilecektir.
+
+Hedef Kitle
+
+
+
+
+
+Türkiye’deki ve dünyadaki amatör/profesyonel DJ’ler.
+
+
+
+Harmonik geçişlere ve müzikal kaliteye önem veren performans DJ’leri.
+
+
+
+Spotify playlist’lerinden hızlıca set listesi oluşturmak isteyen kullanıcılar.
+
+Temel Özellikler
+
+
+
+
+
+Spotify Playlist Analizi:
+
+
+
+
+
+Kullanıcı, bir Spotify playlist linki girer.
+
+
+
+Uygulama, Spotify API’sini kullanarak şarkıların BPM, key ve enerji seviyesini çeker.
+
+
+
+Harmonik Geçiş Önerileri:
+
+
+
+
+
+Şarkılar, Camelot Wheel’e göre ton uyumuyla sıralanır (örneğin, 8A’dan 7A, 9A veya 8B’ye geçiş).
+
+
+
+BPM farkı 5’ten küçük şarkılar önceliklendirilir.
+
+
+
+Set Listesi Oluşturma:
+
+
+
+
+
+Şarkılar, BPM, ton ve enerji seviyesine göre sıralanır.
+
+
+
+Enerji seviyesi kademeli olarak artırılabilir (örneğin, 0.5’ten 0.8’e).
+
+
+
+Kullanıcı, “yavaş başlangıç” veya “enerjik kapanış” gibi tematik geçişler seçebilir.
+
+
+
+Filtreleme:
+
+
+
+
+
+Kullanıcı, BPM aralığı, ton veya enerji seviyesine göre şarkıları filtreleyebilir.
+
+
+
+Kaydetme ve Dışa Aktarma:
+
+
+
+
+
+Oluşturulan set listeleri kaydedilir.
+
+
+
+Set listeleri, Rekordbox, Serato veya Traktor’a uygun XML/CSV formatında dışa aktarılır.
+
+
+
+Kullanıcı Arayüzü:
+
+
+
+
+
+Mobil uyumlu, sade ve modern bir tasarım.
+
+
+
+Türkçe ve İngilizce dil desteği.
+
+
+
+Görselleştirme: BPM ve enerji seviyesini gösteren bir zaman çizelgesi.
+
+Teknoloji Yığını
+
+
+
+
+
+Frontend: React.js (web tabanlı) veya React Native (mobil uyumluluk için, Replit’te test için React.js tercih edilebilir).
+
+
+
+Backend: Node.js + Express (Spotify API istekleri ve veri işleme).
+
+
+
+Spotify API: Audio Features endpoint’i (BPM, key, enerji).
+
+
+
+Veritabanı: Replit’te dosya tabanlı JSON veya MongoDB (bulut tabanlı bir MongoDB Atlas kullanılabilir).
+
+
+
+Stil: Tailwind CSS (hızlı ve modern tasarım).
+
+
+
+Camelot Wheel: Statik bir ton eşleştirme tablosu (kod içinde tanımlı).
+
+
+
+Dışa Aktarma: CSV veya XML formatı için kütüphane (örneğin, json2csv).
+
+Geliştirme Gereksinimleri
+
+
+
+
+
+Spotify API Entegrasyonu:
+
+
+
+
+
+Spotify Developer Dashboard’dan bir uygulama oluşturun ve Client ID ile Client Secret’ı alın.
+
+
+
+Client Credentials Flow ile erişim token’ı çekin.
+
+
+
+/playlists/{id}/tracks endpoint’i ile playlist şarkılarını, /audio-features endpoint’i ile BPM, key ve enerji verilerini alın.
+
+
+
+Camelot Wheel:
+
+
+
+
+
+Spotify’ın key (0-11) ve mode (0: minör, 1: majör) verilerini Camelot Wheel formatına çeviren bir fonksiyon yazın (örneğin, C Major → 8B).
+
+
+
+Uyumlu tonlar için bir eşleştirme tablosu kullanın (örneğin, 8A: [7A, 9A, 8B]).
+
+
+
+Set Listesi Algoritması:
+
+
+
+
+
+Şarkıları BPM’ye göre sıralayın.
+
+
+
+Her şarkı için, ton uyumlu ve BPM farkı ≤5 olan bir sonraki şarkıyı seçin.
+
+
+
+Enerji seviyesini kademeli artırmak için sıralamayı optimize edin.
+
+
+
+Kullanıcı Arayüzü:
+
+
+
+
+
+Playlist linki girilebilen bir input alanı.
+
+
+
+Analiz sonuçlarını listeleyen bir tablo (şarkı adı, sanatçı, BPM, key, enerji).
+
+
+
+Oluşturulan set listesini görselleştiren bir liste.
+
+
+
+Filtreleme için dropdown veya slider (BPM aralığı, enerji seviyesi).
+
+
+
+“Kaydet” ve “Dışa Aktar” butonları.
+
+
+
+Veri Saklama:
+
+
+
+
+
+Set listelerini JSON formatında saklayın (Replit’te dosya sistemi veya MongoDB Atlas).
+
+
+
+Kullanıcıların favori setlerini listeleyebileceği bir ekran.
